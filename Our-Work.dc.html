@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{margin:0;}
+    @keyframes ffUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+  </style>
+  <script src="./image-slot.js"></script>
+  <script src="./ff-reveal.js"></script>
+  <script src="./ff-images.js"></script>
+</helmet>
+
+<div style="font-family:'Inter',system-ui,sans-serif;color:#0f0f0f;background:#ffffff;">
+  <dc-import name="Nav" active="work" hint-size="100%,72px"></dc-import>
+
+  <!-- HERO -->
+  <section style="position:relative;overflow:hidden;border-bottom:1px solid #f0f0ee;background:#ffffff;">
+    <div style="position:absolute;inset:0;background:radial-gradient(680px 360px at 16% -24%, #e8f5ee 0%, rgba(232,245,238,0) 66%);pointer-events:none;"></div>
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:88px 32px 76px;">
+      <span data-reveal style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;margin-bottom:18px;">Our Work</span>
+      <h1 data-reveal data-reveal-delay="80" style="margin:0 0 22px;max-width:880px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(36px,5.4vw,58px);line-height:1.06;letter-spacing:-0.03em;color:#0f0f0f;text-wrap:balance;">
+        From the cafeteria tray to the community table.
+      </h1>
+      <p data-reveal data-reveal-delay="160" style="margin:0;max-width:640px;font-size:clamp(17px,2vw,19px);line-height:1.65;color:#6b6b6b;text-wrap:pretty;">
+        A close look at how a recovery actually happens — and the partnerships keeping fresh food moving across the Triangle.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section style="background:#ffffff;">
+    <div style="max-width:1200px;margin:0 auto;padding:100px 32px;">
+      <div data-reveal style="max-width:640px;margin-bottom:60px;">
+        <span style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;margin-bottom:16px;">How It Works</span>
+        <h2 style="margin:0 0 16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,40px);line-height:1.1;letter-spacing:-0.025em;color:#0f0f0f;">Five steps, start to finish.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#6b6b6b;">Same-day, temperature-safe, and logged every time — so partners can count on it.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+          <div data-reveal data-reveal-delay="{{ s.delay }}" style="display:grid;grid-template-columns:96px 1fr;gap:28px;padding:30px 0;border-top:1px solid #efefec;" class="ff-step-row">
+            <div style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(34px,4.5vw,52px);line-height:1;letter-spacing:-0.03em;color:#1a4a2e;">{{ s.num }}</div>
+            <div style="max-width:680px;padding-top:4px;">
+              <h3 style="margin:0 0 10px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:clamp(20px,2.4vw,24px);letter-spacing:-0.015em;color:#0f0f0f;">{{ s.title }}</h3>
+              <p style="margin:0;font-size:16px;line-height:1.7;color:#6b6b6b;">{{ s.body }}</p>
+            </div>
+          </div>
+        </sc-for>
+        <div style="border-top:1px solid #efefec;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRENT INITIATIVES -->
+  <section style="background:#11341f;border-top:none;border-bottom:none;">
+    <div style="max-width:1200px;margin:0 auto;padding:100px 32px;">
+      <div data-reveal style="max-width:640px;margin-bottom:54px;">
+        <span style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7fc79b;margin-bottom:16px;">Current Initiatives</span>
+        <h2 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,40px);line-height:1.1;letter-spacing:-0.025em;color:#ffffff;">Where the food is coming from today.</h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="ff-init-grid">
+        <div data-reveal style="background:#ffffff;border:1px solid #ececea;border-radius:20px;overflow:hidden;">
+          <img src="{{ workCaryImg }}" alt="Cary Academy Cafeteria" style="display:block;width:100%;height:240px;object-fit:cover;border-bottom:1px solid #ececea;" />
+          <div style="padding:30px;">
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;background:#e8f5ee;color:#1a4a2e;font-size:12px;font-weight:600;letter-spacing:0.02em;margin-bottom:16px;">Founding program</span>
+            <h3 style="margin:0 0 10px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:22px;letter-spacing:-0.015em;color:#0f0f0f;">Cary Academy Cafeteria</h3>
+            <p style="margin:0;font-size:15px;line-height:1.7;color:#6b6b6b;">Our founding partnership. Fresh, unserved food from daily lunch service is recovered right at the source, hand in hand with Chef Drew and the kitchen team.</p>
+          </div>
+        </div>
+
+        <div data-reveal data-reveal-delay="120" style="background:#ffffff;border:1px solid #ececea;border-radius:20px;overflow:hidden;">
+          <img src="{{ workBrueggersImg }}" alt="Bruegger's Bagels" style="display:block;width:100%;height:240px;object-fit:cover;border-bottom:1px solid #ececea;" />
+          <div style="padding:30px;">
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;background:#e8f5ee;color:#1a4a2e;font-size:12px;font-weight:600;letter-spacing:0.02em;margin-bottom:16px;">Surplus partner</span>
+            <h3 style="margin:0 0 10px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:22px;letter-spacing:-0.015em;color:#0f0f0f;">Bruegger's Bagels</h3>
+            <p style="margin:0;font-size:15px;line-height:1.7;color:#6b6b6b;">End-of-day bagels and baked goods that would otherwise be thrown out, redirected to community partners on a steady weekly rhythm.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section style="background:#ffffff;">
+    <div style="max-width:1200px;margin:0 auto;padding:100px 32px;">
+      <div data-reveal style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px;">
+        <div style="max-width:560px;">
+          <span style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;margin-bottom:16px;">In the Field</span>
+          <h2 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,40px);line-height:1.1;letter-spacing:-0.025em;color:#0f0f0f;">From our recoveries.</h2>
+        </div>
+        <p style="margin:0;font-size:14px;color:#9a9a97;">Photos from our recoveries.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;" class="ff-gallery">
+        <img src="{{ workG1Img }}" alt="Recovery photo" style="display:block;width:100%;height:360px;object-fit:cover;border-radius:16px;border:1px solid #ececea;" />
+        <img src="{{ workG2Img }}" alt="Recovery photo" style="display:block;width:100%;height:360px;object-fit:cover;border-radius:16px;border:1px solid #ececea;" />
+        <img src="{{ workG3Img }}" alt="Recovery photo" style="display:block;width:100%;height:360px;object-fit:cover;border-radius:16px;border:1px solid #ececea;" />
+        <img src="{{ workG4Img }}" alt="Recovery photo" style="display:block;width:100%;height:360px;object-fit:cover;border-radius:16px;border:1px solid #ececea;" />
+        <img src="{{ workG5Img }}" alt="Recovery photo" style="display:block;width:100%;height:360px;object-fit:cover;border-radius:16px;border:1px solid #ececea;" />
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+
+<style>
+  @media (max-width: 900px){ .ff-init-grid{grid-template-columns:1fr !important;} .ff-impact-grid{grid-template-columns:1fr !important;gap:36px !important;} }
+  @media (max-width: 760px){ .ff-step-row{grid-template-columns:64px 1fr !important;gap:18px !important;} .ff-gallery{grid-template-columns:repeat(2,1fr) !important;} .ff-gallery > img{height:240px !important;} }
+</style>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    let tries = 0;
+    const run = () => {
+      if (window.__ffReveal) window.__ffReveal();
+      else if (tries++ < 60) setTimeout(run, 40);
+    };
+    run();
+  }
+
+  renderVals() {
+    const imgs = window.__ffImgs || {};
+    return {
+      workCaryImg: imgs['work-cary'] || '',
+      workBrueggersImg: imgs['work-brueggers'] || '',
+      workG1Img: imgs['work-g1'] || '',
+      workG2Img: imgs['work-g2'] || '',
+      workG3Img: imgs['work-g3'] || '',
+      workG4Img: imgs['work-g4'] || '',
+      workG5Img: imgs['work-g5'] || '',
+      steps: [
+        { num: "01", title: "Spot the surplus", body: "Partner kitchens flag fresh, unserved food at the end of a service — meals, produce, and baked goods that are perfectly safe but won't be sold or served.", delay: 0 },
+        { num: "02", title: "Recover, same day", body: "Our team collects it the same day it's made, keeping everything at a safe temperature from the moment of pickup to the final handoff.", delay: 80 },
+        { num: "03", title: "Sort & package", body: "Volunteers check, portion, and pack each recovery to food-safety standards, clearly labeling what's inside and when it was made.", delay: 160 },
+        { num: "04", title: "Deliver where it's needed", body: "We hand off to vetted partners — shelters, pantries, and youth programs — who know their community and get the food onto plates.", delay: 240 },
+        { num: "05", title: "Log & repeat", body: "Every recovery is recorded, so partners can rely on a steady, predictable flow of good food week after week.", delay: 320 },
+      ],
+      impact: [
+        { label: "Meals delivered", note: "Total servings routed to community partners.", delay: 0 },
+        { label: "Pounds recovered", note: "Fresh food kept out of the landfill.", delay: 100 },
+        { label: "Active partners", note: "Kitchens and organizations in the network.", delay: 200 },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{margin:0;}
+    @keyframes ffUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+  </style>
+  <script src="./image-slot.js"></script>
+  <script src="./ff-reveal.js"></script>
+  <script src="./ff-images.js"></script>
+</helmet>
+
+<div style="font-family:'Inter',system-ui,sans-serif;color:#0f0f0f;background:#ffffff;">
+  <dc-import name="Nav" active="partners" hint-size="100%,72px"></dc-import>
+
+  <!-- HERO -->
+  <section style="position:relative;overflow:hidden;border-bottom:1px solid #f0f0ee;background:#ffffff;">
+    <div style="position:absolute;inset:0;background:radial-gradient(680px 360px at 16% -24%, #e8f5ee 0%, rgba(232,245,238,0) 66%);pointer-events:none;"></div>
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:88px 32px 76px;">
+      <span data-reveal style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;margin-bottom:18px;">Partners</span>
+      <h1 data-reveal data-reveal-delay="80" style="margin:0 0 22px;max-width:880px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(36px,5.4vw,58px);line-height:1.06;letter-spacing:-0.03em;color:#0f0f0f;text-wrap:balance;">
+        It takes a network to move good food.
+      </h1>
+      <p data-reveal data-reveal-delay="160" style="margin:0;max-width:640px;font-size:clamp(17px,2vw,19px);line-height:1.65;color:#6b6b6b;text-wrap:pretty;">
+        The kitchens that share their surplus and the organizations that get it onto plates — every recovery depends on the people below.
+      </p>
+    </div>
+  </section>
+
+  <!-- PARTNER LIST -->
+  <section style="background:#ffffff;">
+    <div style="max-width:1200px;margin:0 auto;padding:90px 32px 100px;">
+      <div data-reveal style="display:flex;align-items:baseline;gap:14px;margin-bottom:44px;">
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;">Current Partners</span>
+        <span style="height:1px;flex:1;background:#ececea;"></span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#9a9a97;">{{ count }}</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;" class="ff-partners-grid">
+        <sc-for list="{{ partners }}" as="p" hint-placeholder-count="8">
+          <div data-reveal data-reveal-delay="{{ p.delay }}" style="display:flex;gap:22px;border:1px solid #ececea;border-radius:18px;padding:30px;background:#ffffff;transition:box-shadow .25s ease,transform .25s ease,border-color .25s ease;" style-hover="box-shadow:0 18px 40px -26px rgba(15,15,15,0.2);transform:translateY(-3px);border-color:#dfe7e1;">
+            <img src="{{ p.imgSrc }}" alt="{{ p.name }}" style="flex-shrink:0;display:block;width:64px;height:64px;object-fit:contain;border-radius:14px;border:1px solid #ececea;background:#ffffff;padding:6px;" />
+            <div style="min-width:0;">
+              <h3 style="margin:0 0 6px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.015em;color:#0f0f0f;">{{ p.name }}</h3>
+              <div style="display:inline-flex;align-items:center;gap:7px;margin-bottom:12px;">
+                <span style="width:6px;height:6px;border-radius:50%;background:#2d7a4f;flex-shrink:0;"></span>
+                <span style="font-size:13px;font-weight:500;color:#2d7a4f;">{{ p.contact }}</span>
+              </div>
+              <p style="margin:0;font-size:15px;line-height:1.66;color:#6b6b6b;">{{ p.desc }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- BECOME A PARTNER -->
+  <section style="background:#1a4a2e;color:#ffffff;">
+    <div data-reveal style="max-width:1200px;margin:0 auto;padding:88px 32px;display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center;" class="ff-bp-grid">
+      <div>
+        <span style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7fc79b;margin-bottom:16px;">Become a Partner</span>
+        <h2 style="margin:0 0 16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(28px,3.8vw,42px);line-height:1.1;letter-spacing:-0.025em;color:#ffffff;">Have surplus food, or a community to feed?</h2>
+        <p style="margin:0;max-width:520px;font-size:17px;line-height:1.65;color:#cfe2d6;">Whether you're a kitchen with food to share or an organization that can distribute it, we'd love to talk. Most partnerships start with a single conversation.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+        <a href="mailto:brandonlwang10@gmail.com,masonchuang09@gmail.com,Kwbowles2@gmail.com" style="display:inline-flex;align-items:center;gap:10px;background:#ffffff;color:#1a4a2e;text-decoration:none;font-size:16px;font-weight:600;padding:16px 26px;border-radius:11px;transition:transform .2s ease,box-shadow .2s ease;" style-hover="transform:translateY(-2px);box-shadow:0 16px 30px -16px rgba(0,0,0,0.4);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email the team
+        </a>
+        <span style="font-size:14px;color:#9fbfaa;padding-left:4px;">We usually reply within a day or two.</span>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+
+<style>
+  @media (max-width: 880px){ .ff-partners-grid{grid-template-columns:1fr !important;} .ff-bp-grid{grid-template-columns:1fr !important;gap:32px !important;} }
+</style>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    let tries = 0;
+    const run = () => {
+      if (window.__ffReveal) window.__ffReveal();
+      else if (tries++ < 60) setTimeout(run, 40);
+    };
+    run();
+  }
+
+  renderVals() {
+    const imgs = window.__ffImgs || {};
+    const partners = [
+      { name: "Cary Academy", slot: "partner-cary", contact: "Chef Drew · Head Chef", desc: "Our founding partner. Surplus from daily cafeteria service is recovered right at the source." },
+      { name: "Bruegger's Bagels", slot: "partner-brueggers", contact: "Surplus bagel recovery", desc: "End-of-day bagels and baked goods redirected to community partners on a steady weekly rhythm." },
+      { name: "Urban Ministries", slot: "partner-urban", contact: "Community distribution", desc: "Shelter and food-pantry partner serving Wake County neighbors facing food insecurity." },
+      { name: "Boys & Girls Club", slot: "partner-boysgirls", contact: "Taylor Bennett", desc: "Youth program partner getting fresh food to kids and families through after-school programs." },
+      { name: "Feed The Kids NC", slot: "partner-feedkids", contact: "Jennifer Orr · Director", desc: "Child-focused hunger relief getting meals to students and families across North Carolina." },
+      { name: "Food Bank CENC", slot: "partner-foodbank", contact: "Imade Borha · Director of External Comms", desc: "Central & Eastern NC food bank anchoring large-scale storage and distribution." },
+      { name: "Porch Communities", slot: "partner-porch", contact: "Community distribution", desc: "Neighborhood-powered nonprofit mobilizing communities to share resources and get food to families nearby." },
+    ].map((p, i) => ({ ...p, imgSrc: imgs[p.slot] || '', delay: (i % 2) * 80 }));
+
+    return { partners, count: partners.length + " organizations" };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</helmet>
+<header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.82);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid #ededeb;font-family:'Inter',system-ui,sans-serif;">
+  <nav style="max-width:1200px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+    <a href="Home.dc.html" style="display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0;">
+      <img src="./feedforward-emblem.png" alt="FeedForward" style="width:38px;height:38px;flex-shrink:0;display:block;" />
+      <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.02em;">
+        <span style="color:#0f0f0f;">Feed</span><span style="color:#1a4a2e;">Forward</span>
+      </span>
+    </a>
+
+    <div style="display:flex;align-items:center;gap:4px;" class="ff-desktop-nav">
+      <sc-for list="{{ links }}" as="link" hint-placeholder-count="5">
+        <a href="{{ link.href }}" style="{{ link.style }}" style-hover="color:#1a4a2e;">
+          {{ link.label }}
+          <span style="{{ link.underline }}"></span>
+        </a>
+      </sc-for>
+    </div>
+
+    <button onClick="{{ toggleMenu }}" aria-label="Menu" class="ff-mobile-toggle" style="display:none;background:none;border:none;cursor:pointer;padding:8px;color:#0f0f0f;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </nav>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="border-top:1px solid #ededeb;background:#ffffff;padding:8px 24px 16px;">
+      <sc-for list="{{ links }}" as="link" hint-placeholder-count="5">
+        <a href="{{ link.href }}" style="{{ link.mobileStyle }}">{{ link.label }}</a>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <style>
+    @media (max-width: 760px) {
+      .ff-desktop-nav { display: none !important; }
+      .ff-mobile-toggle { display: inline-flex !important; }
+    }
+  </style>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:72},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;about&quot;,&quot;work&quot;,&quot;partners&quot;,&quot;contact&quot;],&quot;default&quot;:&quot;home&quot;}}">
+class Component extends DCLogic {
+  state = { menuOpen: false };
+
+  renderVals() {
+    const active = this.props.active || "home";
+    const items = [
+      { key: "home", label: "Home", href: "Home.dc.html" },
+      { key: "about", label: "About", href: "About.dc.html" },
+      { key: "work", label: "Our Work", href: "Our-Work.dc.html" },
+      { key: "partners", label: "Partners", href: "Partners.dc.html" },
+      { key: "contact", label: "Contact", href: "Contact.dc.html" },
+    ];
+    const links = items.map((it) => {
+      const isActive = it.key === active;
+      return {
+        label: it.label,
+        href: it.href,
+        style: `position:relative;text-decoration:none;font-size:15px;font-weight:${isActive ? 600 : 500};color:${isActive ? "#1a4a2e" : "#3a3a3a"};padding:9px 14px;border-radius:8px;transition:color .18s ease;`,
+        underline: `position:absolute;left:14px;right:14px;bottom:2px;height:2px;border-radius:2px;background:#2d7a4f;transform:scaleX(${isActive ? 1 : 0});transform-origin:left;transition:transform .22s ease;`,
+        mobileStyle: `display:block;text-decoration:none;font-size:16px;font-weight:${isActive ? 600 : 500};color:${isActive ? "#1a4a2e" : "#3a3a3a"};padding:12px 8px;border-bottom:1px solid #f3f3f1;`,
+      };
+    });
+    return {
+      links,
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+    };
+  }
+}
+</script>
+</body>
+</html>

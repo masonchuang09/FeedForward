@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{margin:0;}
+    @keyframes ffUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+  </style>
+  <script src="./image-slot.js"></script>
+  <script src="./ff-reveal.js"></script>
+  <script src="./ff-images.js"></script>
+</helmet>
+
+<div style="font-family:'Inter',system-ui,sans-serif;color:#0f0f0f;background:#ffffff;">
+  <dc-import name="Nav" active="about" hint-size="100%,72px"></dc-import>
+
+  <!-- HERO -->
+  <section style="position:relative;overflow:hidden;border-bottom:1px solid #f0f0ee;background:#ffffff;">
+    <div style="position:absolute;inset:0;background:radial-gradient(680px 360px at 16% -24%, #e8f5ee 0%, rgba(232,245,238,0) 66%);pointer-events:none;"></div>
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:88px 32px 76px;">
+      <span data-reveal style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;margin-bottom:18px;">About</span>
+      <h1 data-reveal data-reveal-delay="80" style="margin:0 0 22px;max-width:880px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(36px,5.4vw,58px);line-height:1.06;letter-spacing:-0.03em;color:#0f0f0f;text-wrap:balance;">
+        Good food, from kitchens to the people who need it.
+      </h1>
+      <p data-reveal data-reveal-delay="160" style="margin:0;max-width:620px;font-size:clamp(17px,2vw,19px);line-height:1.65;color:#6b6b6b;text-wrap:pretty;">
+        We're a student-run food recovery initiative based at Cary Academy, turning everyday surplus into reliable meals for families across the Triangle.
+      </p>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section style="background:#ffffff;">
+    <div style="max-width:1200px;margin:0 auto;padding:100px 32px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="ff-story-grid">
+      <div data-reveal>
+        <span style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;margin-bottom:16px;">Our Story</span>
+        <h2 style="margin:0 0 22px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,40px);line-height:1.12;letter-spacing:-0.025em;color:#0f0f0f;">It started with a tray of untouched food.</h2>
+        <div style="display:flex;flex-direction:column;gap:18px;font-size:16px;line-height:1.72;color:#52524f;">
+          <p style="margin:0;">FeedForward began in the Cary Academy cafeteria, where our founders kept noticing the same thing: trays of fresh, perfectly good food being thrown out at the end of every service — while families just minutes away went without.</p>
+          <p style="margin:0;">It didn't add up. So we built a simple, repeatable system to recover that surplus, package it safely, and route it to the partners already doing the work of feeding our community.</p>
+          <p style="margin:0;">What began as one cafeteria is now a growing network of kitchens, restaurants, and nonprofits across the Triangle — all moving good food forward instead of into the trash.</p>
+        </div>
+      </div>
+      <div data-reveal data-reveal-delay="120">
+        <img src="{{ aboutStoryImg }}" alt="Our story" style="display:block;width:100%;height:420px;object-fit:cover;border-radius:20px;border:1px solid #ececea;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section style="background:#f6faf7;border-top:1px solid #eaf2ec;border-bottom:1px solid #eaf2ec;">
+    <div style="max-width:1200px;margin:0 auto;padding:100px 32px;">
+      <div data-reveal style="max-width:640px;margin-bottom:54px;">
+        <span style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;margin-bottom:16px;">The Team</span>
+        <h2 style="margin:0 0 16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,40px);line-height:1.1;letter-spacing:-0.025em;color:#0f0f0f;">Built and run by students.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#6b6b6b;">Three co-founders keeping the recoveries running, week in and week out.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;" class="ff-team-grid">
+        <sc-for list="{{ team }}" as="m" hint-placeholder-count="3">
+          <div data-reveal data-reveal-delay="{{ m.delay }}" style="background:#ffffff;border:1px solid #ececea;border-radius:18px;padding:30px;transition:box-shadow .25s ease,transform .25s ease,border-color .25s ease;" style-hover="box-shadow:0 18px 40px -26px rgba(15,15,15,0.22);transform:translateY(-3px);border-color:#dfe7e1;">
+            <img src="{{ m.imgSrc }}" alt="{{ m.name }}" style="display:block;width:84px;height:84px;border-radius:50%;object-fit:cover;border:1px solid #e6ece8;margin-bottom:22px;" />
+            <h3 style="margin:0 0 4px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.01em;color:#0f0f0f;">{{ m.name }}</h3>
+            <p style="margin:0 0 16px;font-size:14px;font-weight:500;color:#2d7a4f;">{{ m.role }}</p>
+            <a href="{{ m.mailto }}" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#52524f;text-decoration:none;transition:color .18s ease;" style-hover="color:#1a4a2e;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              {{ m.email }}
+            </a>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+
+<style>
+  @media (max-width: 900px){ .ff-story-grid{grid-template-columns:1fr !important;gap:40px !important;} .ff-team-grid{grid-template-columns:1fr !important;} .ff-values-grid{grid-template-columns:1fr !important;} }
+</style>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    let tries = 0;
+    const run = () => {
+      if (window.__ffReveal) window.__ffReveal();
+      else if (tries++ < 60) setTimeout(run, 40);
+    };
+    run();
+  }
+
+  renderVals() {
+    const imgs = window.__ffImgs || {};
+    return {
+      aboutStoryImg: imgs['about-story'] || '',
+      team: [
+        { name: "Brandon Wang", role: "Co-Founder", email: "brandonlwang10@gmail.com", mailto: "mailto:brandonlwang10@gmail.com", imgSrc: imgs['about-brandon'] || '', delay: 0 },
+        { name: "Mason Chuang", role: "Co-Founder", email: "masonchuang09@gmail.com", mailto: "mailto:masonchuang09@gmail.com", imgSrc: imgs['about-mason'] || '', delay: 100 },
+        { name: "Kevin Bowles", role: "Co-Founder", email: "Kwbowles2@gmail.com", mailto: "mailto:Kwbowles2@gmail.com", imgSrc: imgs['about-kevin'] || '', delay: 200 },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
