@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{margin:0;}
+    @keyframes ffUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+  </style>
+  <script src="./ff-reveal.js"></script>
+</helmet>
+
+<div style="font-family:'Inter',system-ui,sans-serif;color:#0f0f0f;background:#ffffff;">
+  <dc-import name="Nav" active="home" hint-size="100%,72px"></dc-import>
+
+  <!-- HERO -->
+  <section style="position:relative;overflow:hidden;border-bottom:1px solid #f0f0ee;">
+    <div style="position:absolute;inset:0;background:radial-gradient(620px 420px at 50% -8%, #e8f5ee 0%, rgba(232,245,238,0) 70%);pointer-events:none;"></div>
+    <div style="position:relative;max-width:880px;margin:0 auto;padding:104px 32px 108px;text-align:center;">
+      <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;gap:16px;margin-bottom:30px;">
+        <img src="./feedforward-emblem.png" alt="FeedForward" style="width:84px;height:84px;border-radius:50%;box-shadow:0 12px 30px -10px rgba(26,74,46,0.45);display:block;" />
+        <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:25px;letter-spacing:-0.02em;">
+          <span style="color:#0f0f0f;">Feed</span><span style="color:#1a4a2e;">Forward</span>
+        </span>
+      </div>
+
+      <div data-reveal="" data-reveal-delay="80" style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid #d4e6db;background:#ffffff;border-radius:999px;margin-bottom:26px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:#2d7a4f;"></span>
+        <span style="font-size:13px;font-weight:500;letter-spacing:0.01em;color:#2d7a4f;">Student-run food recovery · Cary, NC</span>
+      </div>
+
+      <h1 data-reveal="" data-reveal-delay="140" style="margin:0 0 22px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(40px,6vw,66px);line-height:1.04;letter-spacing:-0.03em;color:#0f0f0f;text-wrap:balance;">
+        Surplus food, forwarded<br>to neighbors who need it.
+      </h1>
+
+      <p data-reveal="" data-reveal-delay="220" style="margin:0 auto 36px;max-width:600px;font-size:clamp(17px,2vw,19px);line-height:1.65;color:#6b6b6b;text-wrap:pretty;">
+        FeedForward recovers fresh, unserved food from kitchens across the Triangle and gets it to local families<span style="font-size: clamp(17px, 2vw, 19px); text-wrap-mode: initial;">.</span></p>
+
+      <div data-reveal="" data-reveal-delay="300" style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
+        <button onClick="{{ scrollDown }}" style="display:inline-flex;align-items:center;gap:9px;background:#1a4a2e;color:#ffffff;border:none;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;padding:14px 26px;border-radius:10px;cursor:pointer;transition:background .2s ease,transform .2s ease,box-shadow .2s ease;box-shadow:0 8px 20px -12px rgba(26,74,46,0.6);" style-hover="background:#2d7a4f;transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(26,74,46,0.55);">
+          Learn More
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>
+        </button>
+        <a href="Our-Work.dc.html" style="display:inline-flex;align-items:center;gap:8px;color:#1a4a2e;text-decoration:none;font-size:15px;font-weight:600;padding:14px 18px;border-radius:10px;transition:background .2s ease;" style-hover="background:#f1f7f3;">
+          See how it works
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section id="ff-mission" style="background:#e8f5ee;">
+    <div style="max-width:1200px;margin:0 auto;padding:84px 32px;">
+      <div data-reveal="" style="max-width:920px;border-left:3px solid #1a4a2e;padding:8px 0 8px 36px;">
+        <span style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;margin-bottom:18px;">Our Mission</span>
+        <p style="margin:0;font-family:'DM Sans',sans-serif;font-weight:500;font-size:clamp(24px,3.2vw,34px);line-height:1.32;letter-spacing:-0.015em;color:#11341f;text-wrap:pretty;">Good food shouldn't go to waste while people go hungry. We recover what would be thrown away and route it to the organizations feeding our community.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section style="background:#ffffff;">
+    <div style="max-width:1200px;margin:0 auto;padding:100px 32px;">
+      <div data-reveal="" style="max-width:640px;margin-bottom:54px;">
+        <span style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;margin-bottom:16px;">What We Do</span>
+        <h2 style="margin:0 0 16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(30px,4vw,42px);line-height:1.1;letter-spacing:-0.025em;color:#0f0f0f;">Three steps, the same day.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#6b6b6b;">A simple, repeatable process keeps food fresh and gets it where it's needed fast.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;" class="ff-three">
+        <div data-reveal="" data-reveal-delay="0" style="border:1px solid #ececea;border-radius:16px;padding:34px 30px;background:#ffffff;transition:box-shadow .25s ease,transform .25s ease,border-color .25s ease;" style-hover="box-shadow:0 18px 40px -24px rgba(15,15,15,0.22);transform:translateY(-3px);border-color:#dfe7e1;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;">
+            <span style="width:52px;height:52px;border-radius:13px;background:#e8f5ee;display:flex;align-items:center;justify-content:center;">
+              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#1a4a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path></svg>
+            </span>
+            <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:#cdd8d1;">01</span>
+          </div>
+          <h3 style="margin:0 0 10px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:21px;letter-spacing:-0.01em;color:#0f0f0f;">Recover</h3>
+          <p style="margin:0;font-size:15px;line-height:1.66;color:#6b6b6b;">We collect fresh, unserved surplus from school kitchens and local partners before it's discarded.</p>
+        </div>
+
+        <div data-reveal="" data-reveal-delay="100" style="border:1px solid #ececea;border-radius:16px;padding:34px 30px;background:#ffffff;transition:box-shadow .25s ease,transform .25s ease,border-color .25s ease;" style-hover="box-shadow:0 18px 40px -24px rgba(15,15,15,0.22);transform:translateY(-3px);border-color:#dfe7e1;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;">
+            <span style="width:52px;height:52px;border-radius:13px;background:#e8f5ee;display:flex;align-items:center;justify-content:center;">
+              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#1a4a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+            </span>
+            <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:#cdd8d1;">02</span>
+          </div>
+          <h3 style="margin:0 0 10px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:21px;letter-spacing:-0.01em;color:#0f0f0f;">Package</h3>
+          <p style="margin:0;font-size:15px;line-height:1.66;color:#6b6b6b;">Volunteers sort, portion, and safely pack each recovery to food-safety standards, ready for transport.</p>
+        </div>
+
+        <div data-reveal="" data-reveal-delay="200" style="border:1px solid #ececea;border-radius:16px;padding:34px 30px;background:#ffffff;transition:box-shadow .25s ease,transform .25s ease,border-color .25s ease;" style-hover="box-shadow:0 18px 40px -24px rgba(15,15,15,0.22);transform:translateY(-3px);border-color:#dfe7e1;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;">
+            <span style="width:52px;height:52px;border-radius:13px;background:#e8f5ee;display:flex;align-items:center;justify-content:center;">
+              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#1a4a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>
+            </span>
+            <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:#cdd8d1;">03</span>
+          </div>
+          <h3 style="margin:0 0 10px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:21px;letter-spacing:-0.01em;color:#0f0f0f;">Deliver</h3>
+          <p style="margin:0;font-size:15px;line-height:1.66;color:#6b6b6b;">We hand off to trusted partners — shelters, pantries, and youth programs — who get it onto plates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY IT MATTERS -->
+  <section style="background:#11341f;color:#ffffff;">
+    <div style="max-width:1200px;margin:0 auto;padding:96px 32px;">
+      <div data-reveal="" style="max-width:640px;margin-bottom:56px;">
+        <span style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7fc79b;margin-bottom:16px;">Why It Matters</span>
+        <h2 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(30px,4vw,42px);line-height:1.12;letter-spacing:-0.025em;color:#ffffff;">The need is close to home.</h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;" class="ff-two-stat">
+        <div data-reveal="" style="border-top:1px solid rgba(255,255,255,0.14);padding-top:30px;">
+          <div style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(56px,8vw,86px);line-height:1;letter-spacing:-0.03em;color:#ffffff;margin-bottom:18px;">1 in 9</div>
+          <p style="margin:0;max-width:440px;font-size:17px;line-height:1.6;color:#b9cabf;">Wake County residents don't have reliable access to enough food. <span style="color:#7d8c83;font-size:14px;">https://www.wake.gov/summer-food</span></p>
+        </div>
+        <div data-reveal="" data-reveal-delay="120" style="border-top:1px solid rgba(255,255,255,0.14);padding-top:30px;">
+          <div style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(56px,8vw,86px);line-height:1;letter-spacing:-0.03em;color:#ffffff;margin-bottom:18px;"><span data-count-to="38">38</span>%</div>
+          <p style="margin:0;max-width:440px;font-size:17px;line-height:1.6;color:#b9cabf;">of food in the U.S. goes uneaten — much of it perfectly good. <span style="color:#7d8c83;font-size:14px;">https://www.feedingamerica.org/our-work/reduce-food-waste</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section style="background:#ffffff;">
+    <div style="max-width:1200px;margin:0 auto;padding:100px 32px;">
+      <div data-reveal="" style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:46px;">
+        <div style="max-width:560px;">
+          <span style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;margin-bottom:16px;">Partners</span>
+          <h2 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(30px,4vw,42px);line-height:1.1;letter-spacing:-0.025em;color:#0f0f0f;">Working alongside the best.</h2>
+        </div>
+        <a href="Partners.dc.html" style="display:inline-flex;align-items:center;gap:8px;color:#1a4a2e;text-decoration:none;font-size:15px;font-weight:600;" style-hover="color:#2d7a4f;">
+          Meet all partners
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+      </div>
+
+      <div data-reveal="" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid #ececea;border-radius:16px;overflow:hidden;" class="ff-partner-grid">
+        <sc-for list="{{ partners }}" as="p" hint-placeholder-count="8">
+          <div style="padding:34px 26px;border-right:1px solid #f0f0ee;border-bottom:1px solid #f0f0ee;display:flex;align-items:center;justify-content:center;min-height:118px;text-align:center;transition:background .2s ease;" style-hover="background:#f6faf7;">
+            <span style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:16px;letter-spacing:-0.01em;color:#3a3a3a;text-wrap:balance;">{{ p }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section style="background:#f6faf7;border-top:1px solid #eaf2ec;">
+    <div data-reveal="" style="max-width:1200px;margin:0 auto;padding:72px 32px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;">
+      <div style="max-width:620px;">
+        <h2 style="margin:0 0 10px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,34px);line-height:1.15;letter-spacing:-0.02em;color:#0f0f0f;">Have surplus food, or a community to feed?</h2>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#6b6b6b;">We're always looking for kitchens, partners, and volunteers across the Triangle.</p>
+      </div>
+      <a href="Contact.dc.html" style="display:inline-flex;align-items:center;gap:9px;background:#1a4a2e;color:#ffffff;text-decoration:none;font-size:15px;font-weight:600;padding:14px 26px;border-radius:10px;transition:background .2s ease,transform .2s ease;flex-shrink:0;" style-hover="background:#2d7a4f;transform:translateY(-2px);">
+        Get in touch
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+      </a>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+
+<style>
+  @media (max-width: 860px){ .ff-three{grid-template-columns:1fr !important;} .ff-two-stat{grid-template-columns:1fr !important;gap:44px !important;} .ff-partner-grid{grid-template-columns:repeat(2,1fr) !important;} }
+  @media (max-width: 480px){ .ff-partner-grid{grid-template-columns:1fr !important;} }
+</style>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    let tries = 0;
+    const run = () => {
+      if (window.__ffReveal) window.__ffReveal();
+      else if (tries++ < 60) setTimeout(run, 40);
+    };
+    run();
+  }
+
+  renderVals() {
+    return {
+      partners: [
+        "Cary Academy",
+        "Bruegger's Bagels",
+        "Urban Ministries",
+        "Boys & Girls Club",
+        "Feed The Kids NC",
+        "Food Bank CENC",
+        "Porch Communities",
+      ],
+      scrollDown: () => {
+        const el = document.getElementById("ff-mission");
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 12;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

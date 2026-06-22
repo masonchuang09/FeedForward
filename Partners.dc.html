@@ -39,19 +39,58 @@
     </div>
   </section>
 
-  <!-- PARTNER LIST -->
-  <section style="background:#ffffff;">
-    <div style="max-width:1200px;margin:0 auto;padding:90px 32px 100px;">
-      <div data-reveal style="display:flex;align-items:baseline;gap:14px;margin-bottom:44px;">
-        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;">Current Partners</span>
+  <!-- OUR SPONSORS -->
+  <section id="sponsors" style="background:#ffffff;scroll-margin-top:90px;">
+    <div style="max-width:1200px;margin:0 auto;padding:90px 32px 56px;">
+      <div data-reveal style="display:flex;align-items:baseline;gap:14px;margin-bottom:18px;">
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;">Our Sponsors</span>
         <span style="height:1px;flex:1;background:#ececea;"></span>
-        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#9a9a97;">{{ count }}</span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#9a9a97;">{{ sponsorsCount }}</span>
       </div>
+      <p data-reveal style="margin:0 0 36px;max-width:620px;font-size:15px;line-height:1.66;color:#6b6b6b;">The kitchens, bakeries, and delis that share their surplus food so none of it goes to waste.</p>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;" class="ff-partners-grid">
-        <sc-for list="{{ partners }}" as="p" hint-placeholder-count="8">
+        <sc-for list="{{ sponsors }}" as="p" hint-placeholder-count="3">
           <div data-reveal data-reveal-delay="{{ p.delay }}" style="display:flex;gap:22px;border:1px solid #ececea;border-radius:18px;padding:30px;background:#ffffff;transition:box-shadow .25s ease,transform .25s ease,border-color .25s ease;" style-hover="box-shadow:0 18px 40px -26px rgba(15,15,15,0.2);transform:translateY(-3px);border-color:#dfe7e1;">
-            <img src="{{ p.imgSrc }}" alt="{{ p.name }}" style="flex-shrink:0;display:block;width:64px;height:64px;object-fit:contain;border-radius:14px;border:1px solid #ececea;background:#ffffff;padding:6px;" />
+            <sc-if value="{{ p.hasImg }}" hint-placeholder-val="{{ true }}">
+              <img src="{{ p.imgSrc }}" alt="{{ p.name }}" style="flex-shrink:0;display:block;width:64px;height:64px;object-fit:contain;border-radius:14px;border:1px solid #ececea;background:#ffffff;padding:6px;" />
+            </sc-if>
+            <sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ false }}">
+              <div style="flex-shrink:0;display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:14px;border:1px solid #ececea;background:#f1f7f3;font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.01em;color:#1a4a2e;">{{ p.initials }}</div>
+            </sc-if>
+            <div style="min-width:0;">
+              <h3 style="margin:0 0 6px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.015em;color:#0f0f0f;">{{ p.name }}</h3>
+              <div style="display:inline-flex;align-items:center;gap:7px;margin-bottom:12px;">
+                <span style="width:6px;height:6px;border-radius:50%;background:#2d7a4f;flex-shrink:0;"></span>
+                <span style="font-size:13px;font-weight:500;color:#2d7a4f;">{{ p.contact }}</span>
+              </div>
+              <p style="margin:0;font-size:15px;line-height:1.66;color:#6b6b6b;">{{ p.desc }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGANIZATIONS WE SERVE -->
+  <section id="organizations" style="background:#ffffff;scroll-margin-top:90px;">
+    <div style="max-width:1200px;margin:0 auto;padding:24px 32px 100px;">
+      <div data-reveal style="display:flex;align-items:baseline;gap:14px;margin-bottom:18px;">
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;">Organizations We Serve</span>
+        <span style="height:1px;flex:1;background:#ececea;"></span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#9a9a97;">{{ organizationsCount }}</span>
+      </div>
+      <p data-reveal style="margin:0 0 36px;max-width:620px;font-size:15px;line-height:1.66;color:#6b6b6b;">The nonprofits and community programs that get recovered food onto plates across the region.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;" class="ff-partners-grid">
+        <sc-for list="{{ organizations }}" as="p" hint-placeholder-count="5">
+          <div data-reveal data-reveal-delay="{{ p.delay }}" style="display:flex;gap:22px;border:1px solid #ececea;border-radius:18px;padding:30px;background:#ffffff;transition:box-shadow .25s ease,transform .25s ease,border-color .25s ease;" style-hover="box-shadow:0 18px 40px -26px rgba(15,15,15,0.2);transform:translateY(-3px);border-color:#dfe7e1;">
+            <sc-if value="{{ p.hasImg }}" hint-placeholder-val="{{ true }}">
+              <img src="{{ p.imgSrc }}" alt="{{ p.name }}" style="flex-shrink:0;display:block;width:64px;height:64px;object-fit:contain;border-radius:14px;border:1px solid #ececea;background:#ffffff;padding:6px;" />
+            </sc-if>
+            <sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ false }}">
+              <div style="flex-shrink:0;display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:14px;border:1px solid #ececea;background:#f1f7f3;font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.01em;color:#1a4a2e;">{{ p.initials }}</div>
+            </sc-if>
             <div style="min-width:0;">
               <h3 style="margin:0 0 6px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.015em;color:#0f0f0f;">{{ p.name }}</h3>
               <div style="display:inline-flex;align-items:center;gap:7px;margin-bottom:12px;">
@@ -104,17 +143,31 @@ class Component extends DCLogic {
 
   renderVals() {
     const imgs = window.__ffImgs || {};
-    const partners = [
+    const initialsOf = (name) => name.split(/\s+/).filter(w => /[A-Za-z]/.test(w)).slice(0, 2).map(w => w[0].toUpperCase()).join("");
+    const withImg = (arr) => arr.map((p, i) => {
+      const src = imgs[p.slot] || '';
+      return { ...p, imgSrc: src, hasImg: !!src, noImg: !src, initials: initialsOf(p.name), delay: (i % 2) * 80 };
+    });
+
+    const sponsors = withImg([
       { name: "Cary Academy", slot: "partner-cary", contact: "Chef Drew · Head Chef", desc: "Our founding partner. Surplus from daily cafeteria service is recovered right at the source." },
       { name: "Bruegger's Bagels", slot: "partner-brueggers", contact: "Surplus bagel recovery", desc: "End-of-day bagels and baked goods redirected to community partners on a steady weekly rhythm." },
+      { name: "New York Bagel and Deli", slot: "partner-nybagel", contact: "Surplus food recovery", desc: "Fresh bagels, sandwiches, and deli fare recovered from daily surplus and redirected to community members in need." },
+    ]);
+
+    const organizations = withImg([
       { name: "Urban Ministries", slot: "partner-urban", contact: "Community distribution", desc: "Shelter and food-pantry partner serving Wake County neighbors facing food insecurity." },
       { name: "Boys & Girls Club", slot: "partner-boysgirls", contact: "Taylor Bennett", desc: "Youth program partner getting fresh food to kids and families through after-school programs." },
-      { name: "Feed The Kids NC", slot: "partner-feedkids", contact: "Jennifer Orr · Director", desc: "Child-focused hunger relief getting meals to students and families across North Carolina." },
-      { name: "Food Bank CENC", slot: "partner-foodbank", contact: "Imade Borha · Director of External Comms", desc: "Central & Eastern NC food bank anchoring large-scale storage and distribution." },
-      { name: "Porch Communities", slot: "partner-porch", contact: "Community distribution", desc: "Neighborhood-powered nonprofit mobilizing communities to share resources and get food to families nearby." },
-    ].map((p, i) => ({ ...p, imgSrc: imgs[p.slot] || '', delay: (i % 2) * 80 }));
+      { name: "White Oak Foundation", slot: "partner-whiteoak", contact: "Community distribution", desc: "Local foundation channeling recovered food to families and neighbors across the community." },
+      { name: "NeighborUp", slot: "partner-neighborup", contact: "Community distribution", desc: "Neighbor-to-neighbor network mobilizing communities to share resources and get food where it's needed." },
+    ]);
 
-    return { partners, count: partners.length + " organizations" };
+    return {
+      sponsors,
+      organizations,
+      sponsorsCount: sponsors.length + (sponsors.length === 1 ? " sponsor" : " sponsors"),
+      organizationsCount: organizations.length + (organizations.length === 1 ? " organization" : " organizations"),
+    };
   }
 }
 </script>

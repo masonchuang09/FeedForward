@@ -14,7 +14,7 @@
 </helmet>
 <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.82);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid #ededeb;font-family:'Inter',system-ui,sans-serif;">
   <nav style="max-width:1200px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
-    <a href="/" style="display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0;">
+    <a href="Home.dc.html" style="display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0;">
       <img src="./feedforward-emblem.png" alt="FeedForward" style="width:38px;height:38px;flex-shrink:0;display:block;" />
       <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.02em;">
         <span style="color:#0f0f0f;">Feed</span><span style="color:#1a4a2e;">Forward</span>
@@ -23,10 +23,26 @@
 
     <div style="display:flex;align-items:center;gap:4px;" class="ff-desktop-nav">
       <sc-for list="{{ links }}" as="link" hint-placeholder-count="5">
-        <a href="{{ link.href }}" style="{{ link.style }}" style-hover="color:#1a4a2e;">
-          {{ link.label }}
-          <span style="{{ link.underline }}"></span>
-        </a>
+        <sc-if value="{{ link.hasDropdown }}" hint-placeholder-val="{{ false }}">
+          <div class="ff-dd {{ link.ddClass }}" style="position:relative;">
+            <button onClick="{{ link.toggle }}" style="{{ link.btnStyle }}">
+              {{ link.label }}
+              <svg class="ff-dd-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              <span style="{{ link.underline }}"></span>
+            </button>
+            <div class="ff-dd-menu">
+              <sc-for list="{{ link.children }}" as="child" hint-placeholder-count="2">
+                <a href="{{ child.href }}">{{ child.label }}</a>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ link.noDropdown }}" hint-placeholder-val="{{ true }}">
+          <a href="{{ link.href }}" style="{{ link.style }}" style-hover="color:#1a4a2e;">
+            {{ link.label }}
+            <span style="{{ link.underline }}"></span>
+          </a>
+        </sc-if>
       </sc-for>
     </div>
 
@@ -38,12 +54,33 @@
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
     <div style="border-top:1px solid #ededeb;background:#ffffff;padding:8px 24px 16px;">
       <sc-for list="{{ links }}" as="link" hint-placeholder-count="5">
-        <a href="{{ link.href }}" style="{{ link.mobileStyle }}">{{ link.label }}</a>
+        <sc-if value="{{ link.hasDropdown }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ link.toggleSub }}" style="{{ link.mobileBtnStyle }}">
+            <span>{{ link.label }}</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="{{ link.mobileChevron }}"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <sc-if value="{{ link.subOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:2px 0 8px;">
+              <sc-for list="{{ link.children }}" as="child" hint-placeholder-count="2">
+                <a href="{{ child.href }}" style="display:block;text-decoration:none;font-size:15px;font-weight:500;color:#5a5a5a;padding:11px 8px 11px 22px;border-bottom:1px solid #f3f3f1;">{{ child.label }}</a>
+              </sc-for>
+            </div>
+          </sc-if>
+        </sc-if>
+        <sc-if value="{{ link.noDropdown }}" hint-placeholder-val="{{ true }}">
+          <a href="{{ link.href }}" style="{{ link.mobileStyle }}">{{ link.label }}</a>
+        </sc-if>
       </sc-for>
     </div>
   </sc-if>
 
   <style>
+    .ff-dd-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:224px;background:#ffffff;border:1px solid #ededeb;border-radius:12px;box-shadow:0 20px 44px -24px rgba(15,15,15,0.28);padding:6px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:60;}
+    .ff-dd:hover .ff-dd-menu, .ff-dd.ff-dd-open .ff-dd-menu{opacity:1;visibility:visible;transform:translateY(0);}
+    .ff-dd-menu a{display:block;padding:11px 14px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500;color:#3a3a3a;white-space:nowrap;transition:background .15s ease,color .15s ease;}
+    .ff-dd-menu a:hover{background:#f1f7f3;color:#1a4a2e;}
+    .ff-dd-chevron{transition:transform .2s ease;}
+    .ff-dd:hover .ff-dd-chevron, .ff-dd.ff-dd-open .ff-dd-chevron{transform:rotate(180deg);}
     @media (max-width: 760px) {
       .ff-desktop-nav { display: none !important; }
       .ff-mobile-toggle { display: inline-flex !important; }
@@ -53,27 +90,53 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:72},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;about&quot;,&quot;work&quot;,&quot;partners&quot;,&quot;contact&quot;],&quot;default&quot;:&quot;home&quot;}}">
 class Component extends DCLogic {
-  state = { menuOpen: false };
+  state = { menuOpen: false, ddOpen: false, subOpen: false };
+
+  componentDidMount() {
+    this._onDoc = () => {
+      if (this.state.ddOpen) this.setState({ ddOpen: false });
+    };
+    document.addEventListener("click", this._onDoc);
+  }
+  componentWillUnmount() {
+    if (this._onDoc) document.removeEventListener("click", this._onDoc, true);
+  }
 
   renderVals() {
     const active = this.props.active || "home";
     const items = [
-  { key: "home", label: "Home", href: "/" },
-  { key: "about", label: "About", href: "/About.dc.html" },
-  { key: "work", label: "Our Work", href: "/Our-Work.dc.html" },
-  { key: "partners", label: "Partners", href: "/Partners.dc.html" },
-  { key: "contact", label: "Contact", href: "/Contact.dc.html" },
-];
+      { key: "home", label: "Home", href: "Home.dc.html" },
+      { key: "about", label: "About", href: "About.dc.html" },
+      { key: "work", label: "Our Work", href: "Our-Work.dc.html" },
+      { key: "partners", label: "Partners", href: "Partners.dc.html", children: [
+        { label: "Our Sponsors", href: "Partners.dc.html#sponsors" },
+        { label: "Organizations We Serve", href: "Partners.dc.html#organizations" },
+      ] },
+      { key: "contact", label: "Contact", href: "Contact.dc.html" },
+    ];
+
     const links = items.map((it) => {
       const isActive = it.key === active;
+      const hasDropdown = !!it.children;
       return {
         label: it.label,
         href: it.href,
+        children: it.children || [],
+        hasDropdown,
+        noDropdown: !hasDropdown,
+        ddClass: this.state.ddOpen ? "ff-dd-open" : "",
+        subOpen: this.state.subOpen,
+        toggle: (e) => { e.preventDefault(); e.stopPropagation(); this.setState((s) => ({ ddOpen: !s.ddOpen })); },
+        toggleSub: (e) => { e.preventDefault(); this.setState((s) => ({ subOpen: !s.subOpen })); },
         style: `position:relative;text-decoration:none;font-size:15px;font-weight:${isActive ? 600 : 500};color:${isActive ? "#1a4a2e" : "#3a3a3a"};padding:9px 14px;border-radius:8px;transition:color .18s ease;`,
+        btnStyle: `position:relative;display:inline-flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;font-family:inherit;font-size:15px;font-weight:${isActive ? 600 : 500};color:${isActive ? "#1a4a2e" : "#3a3a3a"};padding:9px 14px;border-radius:8px;transition:color .18s ease;`,
         underline: `position:absolute;left:14px;right:14px;bottom:2px;height:2px;border-radius:2px;background:#2d7a4f;transform:scaleX(${isActive ? 1 : 0});transform-origin:left;transition:transform .22s ease;`,
         mobileStyle: `display:block;text-decoration:none;font-size:16px;font-weight:${isActive ? 600 : 500};color:${isActive ? "#1a4a2e" : "#3a3a3a"};padding:12px 8px;border-bottom:1px solid #f3f3f1;`,
+        mobileBtnStyle: `width:100%;display:flex;align-items:center;justify-content:space-between;background:none;border:none;border-bottom:1px solid #f3f3f1;cursor:pointer;font-family:inherit;text-align:left;font-size:16px;font-weight:${isActive ? 600 : 500};color:${isActive ? "#1a4a2e" : "#3a3a3a"};padding:12px 8px;`,
+        mobileChevron: `transition:transform .2s ease;transform:rotate(${this.state.subOpen ? 180 : 0}deg);`,
       };
     });
+
     return {
       links,
       menuOpen: this.state.menuOpen,
