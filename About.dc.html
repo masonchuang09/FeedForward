@@ -63,10 +63,10 @@
       <div data-reveal style="max-width:640px;margin-bottom:54px;">
         <span style="display:block;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2d7a4f;margin-bottom:16px;">The Team</span>
         <h2 style="margin:0 0 16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,40px);line-height:1.1;letter-spacing:-0.025em;color:#0f0f0f;">Built and run by students.</h2>
-        <p style="margin:0;font-size:17px;line-height:1.65;color:#6b6b6b;">Three co-founders keeping the recoveries running, week in and week out.</p>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#6b6b6b;">Four coleaders keeping the recoveries running, week in and week out.</p>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;" class="ff-team-grid">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;" class="ff-team-grid">
         <sc-for list="{{ team }}" as="m" hint-placeholder-count="3">
           <div data-reveal data-reveal-delay="{{ m.delay }}" style="background:#ffffff;border:1px solid #ececea;border-radius:18px;padding:30px;transition:box-shadow .25s ease,transform .25s ease,border-color .25s ease;" style-hover="box-shadow:0 18px 40px -26px rgba(15,15,15,0.22);transform:translateY(-3px);border-color:#dfe7e1;">
             <img src="{{ m.imgSrc }}" alt="{{ m.name }}" style="display:block;width:84px;height:84px;border-radius:50%;object-fit:cover;border:1px solid #e6ece8;margin-bottom:22px;" />
@@ -105,9 +105,10 @@ class Component extends DCLogic {
     return {
       aboutStoryImg: imgs['about-story'] || '',
       team: [
-        { name: "Brandon Wang", role: "Co-Founder", email: "brandonlwang10@gmail.com", mailto: "mailto:brandonlwang10@gmail.com", imgSrc: imgs['about-brandon'] || '', delay: 0 },
-        { name: "Mason Chuang", role: "Co-Founder", email: "masonchuang09@gmail.com", mailto: "mailto:masonchuang09@gmail.com", imgSrc: imgs['about-mason'] || '', delay: 100 },
-        { name: "Kevin Bowles", role: "Co-Founder", email: "Kwbowles2@gmail.com", mailto: "mailto:Kwbowles2@gmail.com", imgSrc: imgs['about-kevin'] || '', delay: 200 },
+        { name: "Brandon Wang", role: "Coleader", email: "brandonlwang10@gmail.com", mailto: "mailto:brandonlwang10@gmail.com", imgSrc: imgs['about-brandon'] || '', delay: 0 },
+        { name: "Mason Chuang", role: "Coleader", email: "masonchuang09@gmail.com", mailto: "mailto:masonchuang09@gmail.com", imgSrc: imgs['about-mason'] || '', delay: 100 },
+        { name: "Kevin Bowles", role: "Coleader", email: "Kwbowles2@gmail.com", mailto: "mailto:Kwbowles2@gmail.com", imgSrc: imgs['about-kevin'] || '', delay: 200 },
+        { name: "Paul Sirianni", role: "Coleader", email: "paul.c.sirianni@gmail.com", mailto: "mailto:paul.c.sirianni@gmail.com", imgSrc: imgs['about-paul'] || '', delay: 300 },
       ],
     };
   }
