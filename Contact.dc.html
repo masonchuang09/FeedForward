@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #01120c; }
+  a { color: #ffffff; text-decoration: none; }
+  a:hover { color: #ffffff; }
+</style>
+</helmet>
+
+<div style="font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased;">
+
+  <div style="position: relative; padding-bottom: 150px; background: linear-gradient(to bottom, oklch(0.12 0.032 155) 0%, oklch(0.19 0.038 154) 14%, oklch(0.29 0.042 152) 28%, oklch(0.40 0.042 150) 42%, oklch(0.51 0.038 147) 56%, oklch(0.61 0.032 143) 68%, oklch(0.68 0.026 139) 80%, oklch(0.715 0.02 136) 92%, oklch(0.72 0.018 135) 100%); overflow: hidden;">
+    <div style="position: absolute; inset: 0; background-image: url('images/grain.png'); background-repeat: repeat; opacity: 0.5; mix-blend-mode: overlay; pointer-events: none;"></div>
+
+    <div style="position: relative; max-width: 1180px; margin: 0 auto; padding: 32px clamp(24px,6vw,64px) 0; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between;">
+      <a href="Home.dc.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="images/feedforward-logo.png" alt="FeedForward" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; flex: none; display: block;" />
+        <div style="font-size: 18px; font-weight: 500; letter-spacing: -0.03em; color: #ffffff;">FeedForward</div>
+      </a>
+      <div style="height: 40px; box-sizing: border-box; display: flex; align-items: center; padding: 0 18px; border-radius: 6px; background: rgba(255,255,255,0.105); cursor: pointer;" onclick="{{ openMenu }}">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: -0.01em; color: #ffffff;">MENU</span>
+      </div>
+    </div>
+
+    <div ref="{{ introRef }}" style="position: relative; max-width: 1180px; margin: 0 auto; padding: 100px clamp(24px,6vw,64px) 0; box-sizing: border-box; {{ introReveal }}">
+      <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: end;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 22px;">
+            <div style="width: 8px; height: 8px; background: #cd8552; flex: none;"></div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: #ffffff;">CONTACT</span>
+          </div>
+          <div style="font-family: 'Fraunces', serif; font-size: clamp(38px,5vw,62px); font-weight: 500; line-height: 1.04; letter-spacing: -0.025em; color: #ffffff;">Get in touch.</div>
+        </div>
+        <div style="font-size: 18px; line-height: 1.6; letter-spacing: -0.01em; color: rgba(255,255,255,0.72); padding-bottom: 6px;">Reach out anytime. No forms, no runaround. A real person will get back to you.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: oklch(0.72 0.018 135); padding: 10px 0 150px;">
+    <div ref="{{ bodyRef }}" style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px,6vw,64px); box-sizing: border-box; {{ bodyReveal }}">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px;">
+
+        <div style="position: relative;">
+          <div style="position: relative; font-family: 'Fraunces', serif; font-size: clamp(28px,3vw,36px); font-weight: 600; letter-spacing: -0.02em; color: #0a1a13; margin-bottom: 40px;">Who we'd love to hear from,</div>
+
+          <div style="position: relative; display: flex; flex-direction: column; gap: 32px;">
+            <div style="display: flex; gap: 20px; align-items: flex-start;">
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: #cd8552; padding-top: 3px;">01</div>
+              <div>
+                <div style="font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; letter-spacing: -0.015em; color: #0a1a13;">Organizations.</div>
+                <div style="margin-top: 7px; font-size: 15px; line-height: 1.6; letter-spacing: -0.005em; color: rgba(10,26,19,0.72);">Kitchens with surplus to share, or nonprofits that can get food to the community.</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 20px; align-items: flex-start;">
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: #172c21; padding-top: 3px;">02</div>
+              <div>
+                <div style="font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; letter-spacing: -0.015em; color: #0a1a13;">Volunteers.</div>
+                <div style="margin-top: 7px; font-size: 15px; line-height: 1.6; letter-spacing: -0.005em; color: rgba(10,26,19,0.72);">Anyone who wants to help recover, pack, and deliver food across the Triangle.</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 20px; align-items: flex-start;">
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: #172c21; padding-top: 3px;">03</div>
+              <div>
+                <div style="font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; letter-spacing: -0.015em; color: #0a1a13;">Press and media.</div>
+                <div style="margin-top: 7px; font-size: 15px; line-height: 1.6; letter-spacing: -0.005em; color: rgba(10,26,19,0.72);">For stories, interviews, or anything about our work and impact.</div>
+              </div>
+            </div>
+          </div>
+
+          <a href="mailto:feedforward.contact@gmail.com" style="position: relative; margin-top: 44px; display: inline-flex; align-items: center; padding: 15px 26px; border-radius: 6px; background: #cd8552;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: -0.018em; color: #01120c;">EMAIL THE TEAM</span>
+          </a>
+        </div>
+
+        <div>
+          <div style="font-family: 'Fraunces', serif; font-size: clamp(28px,3vw,36px); font-weight: 600; letter-spacing: -0.02em; color: #0a1a13; margin-bottom: 40px;">Reach the team directly,</div>
+
+          <div style="display: flex; flex-direction: column;">
+
+            <a href="mailto:feedforward.contact@gmail.com" style="display: flex; align-items: center; gap: 16px; padding: 19px 0; border-bottom: 1px solid rgba(10,26,19,0.2);">
+              <div style="width: 42px; height: 42px; border-radius: 50%; background: #172c21; display: flex; align-items: center; justify-content: center; flex: none;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: #ffffff;">FF</span>
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; letter-spacing: -0.015em; color: #0a1a13;">FeedForward</div>
+                <div style="margin-top: 2px; font-size: 13px; letter-spacing: -0.005em; color: rgba(10,26,19,0.55);">General inquiries</div>
+              </div>
+              <div style="font-size: 14px; letter-spacing: -0.005em; color: #172c21; text-align: right;">feedforward.contact@gmail.com</div>
+            </a>
+
+            <a href="mailto:brandonlwang10@gmail.com" style="display: flex; align-items: center; gap: 16px; padding: 19px 0; border-bottom: 1px solid rgba(10,26,19,0.2);">
+              <div style="width: 42px; height: 42px; border-radius: 50%; background: #3d5c47; display: flex; align-items: center; justify-content: center; flex: none;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: #ffffff;">BW</span>
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; letter-spacing: -0.015em; color: #0a1a13;">Brandon Wang</div>
+                <div style="margin-top: 2px; font-size: 13px; letter-spacing: -0.005em; color: rgba(10,26,19,0.55);">Co-Leader</div>
+              </div>
+              <div style="font-size: 14px; letter-spacing: -0.005em; color: #172c21; text-align: right;">brandonlwang10@gmail.com</div>
+            </a>
+
+            <a href="mailto:masonchuang09@gmail.com" style="display: flex; align-items: center; gap: 16px; padding: 19px 0; border-bottom: 1px solid rgba(10,26,19,0.2);">
+              <div style="width: 42px; height: 42px; border-radius: 50%; background: #4f6b52; display: flex; align-items: center; justify-content: center; flex: none;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: #ffffff;">MC</span>
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; letter-spacing: -0.015em; color: #0a1a13;">Mason Chuang</div>
+                <div style="margin-top: 2px; font-size: 13px; letter-spacing: -0.005em; color: rgba(10,26,19,0.55);">Co-Leader</div>
+              </div>
+              <div style="font-size: 14px; letter-spacing: -0.005em; color: #172c21; text-align: right;">masonchuang09@gmail.com</div>
+            </a>
+
+            <a href="mailto:kwbowles2@gmail.com" style="display: flex; align-items: center; gap: 16px; padding: 19px 0; border-bottom: 1px solid rgba(10,26,19,0.2);">
+              <div style="width: 42px; height: 42px; border-radius: 50%; background: #61735a; display: flex; align-items: center; justify-content: center; flex: none;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: #ffffff;">KB</span>
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; letter-spacing: -0.015em; color: #0a1a13;">Kevin Bowles</div>
+                <div style="margin-top: 2px; font-size: 13px; letter-spacing: -0.005em; color: rgba(10,26,19,0.55);">Co-Leader</div>
+              </div>
+              <div style="font-size: 14px; letter-spacing: -0.005em; color: #172c21; text-align: right;">kwbowles2@gmail.com</div>
+            </a>
+
+            <a href="mailto:paul.c.sirianni@gmail.com" style="display: flex; align-items: center; gap: 16px; padding: 19px 0; border-bottom: 1px solid rgba(10,26,19,0.2);">
+              <div style="width: 42px; height: 42px; border-radius: 50%; background: #74815f; display: flex; align-items: center; justify-content: center; flex: none;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: #ffffff;">PS</span>
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; letter-spacing: -0.015em; color: #0a1a13;">Paul Sirianni</div>
+                <div style="margin-top: 2px; font-size: 13px; letter-spacing: -0.005em; color: rgba(10,26,19,0.55);">Co-Leader</div>
+              </div>
+              <div style="font-size: 14px; letter-spacing: -0.005em; color: #172c21; text-align: right;">paul.c.sirianni@gmail.com</div>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div style="position: fixed; inset: 0; z-index: 9999; background: #01120c; opacity: {{ menuOpacity }}; pointer-events: {{ menuPointer }}; transition: opacity 0.35s ease;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 32px clamp(24px,6vw,64px) 0; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between;">
+      <a href="Home.dc.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="images/feedforward-logo.png" alt="FeedForward" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; flex: none; display: block;" />
+        <div style="font-size: 18px; font-weight: 500; letter-spacing: -0.03em; color: #ffffff;">FeedForward</div>
+      </a>
+      <div style="height: 40px; box-sizing: border-box; display: flex; align-items: center; padding: 0 18px; border-radius: 6px; background: rgba(255,255,255,0.105); cursor: pointer;" onclick="{{ closeMenu }}">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: -0.01em; color: #ffffff;">CLOSE</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 12vh clamp(24px,8vw,120px) 0;">
+      <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="5">
+        <a href="{{ l.href }}" style="font-family: 'Fraunces', serif; font-size: clamp(40px,7vw,88px); font-weight: 600; letter-spacing: -0.03em; color: #ffffff; opacity: {{ l.opacity }}; transform: translateY({{ l.translateY }}); transition: opacity 0.4s ease, transform 0.4s ease; transition-delay: {{ l.delay }};">{{ l.label }}</a>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="background: #01120c; padding: 72px 0 40px; border-top: 1px solid rgba(255,255,255,0.08);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px,6vw,64px); box-sizing: border-box;">
+      <div style="display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap;">
+        <div style="max-width: 340px;">
+          <a href="Home.dc.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <img src="images/feedforward-logo.png" alt="FeedForward" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover; flex: none; display: block;" />
+            <div style="font-size: 17px; font-weight: 500; letter-spacing: -0.03em; color: #ffffff;">FeedForward</div>
+          </a>
+          <div style="margin-top: 16px; font-size: 15px; line-height: 1.6; letter-spacing: -0.005em; color: rgba(255,255,255,0.55);">Recovering surplus food, delivering it to the neighbors who need it most across the Triangle.</div>
+        </div>
+
+        <div style="display: flex; gap: 64px; flex-wrap: wrap;">
+          <div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,255,255,0.4); margin-bottom: 16px;">EXPLORE</div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <a href="Home.dc.html" style="font-size: 14px; letter-spacing: -0.01em; color: rgba(255,255,255,0.7);">Home</a>
+              <a href="The%20Team.dc.html" style="font-size: 14px; letter-spacing: -0.01em; color: rgba(255,255,255,0.7);">The Team</a>
+              <a href="Our%20Work.dc.html" style="font-size: 14px; letter-spacing: -0.01em; color: rgba(255,255,255,0.7);">Our Work</a>
+              <a href="Partners.dc.html" style="font-size: 14px; letter-spacing: -0.01em; color: rgba(255,255,255,0.7);">Partners</a>
+              <a href="Contact.dc.html" style="font-size: 14px; letter-spacing: -0.01em; color: #ffffff;">Contact</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,255,255,0.4); margin-bottom: 16px;">GET IN TOUCH</div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <a href="mailto:feedforward.contact@gmail.com" style="font-size: 14px; letter-spacing: -0.01em; color: rgba(255,255,255,0.7);">Contact the team</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px; letter-spacing: -0.01em; color: rgba(255,255,255,0.4);">2026 FeedForward. A student-run food recovery initiative. Based at Cary Academy.</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { menuOpen: false, revealed: {} };
+  sectionEls = {};
+  baseNav = [
+    { label: 'Home', href: 'Home.dc.html' },
+    { label: 'The Team', href: 'The%20Team.dc.html' },
+    { label: 'Our Work', href: 'Our%20Work.dc.html' },
+    { label: 'Partners', href: 'Partners.dc.html' },
+    { label: 'Contact', href: 'Contact.dc.html' },
+  ];
+  componentDidMount() {
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const key = Object.keys(this.sectionEls).find((k) => this.sectionEls[k] === entry.target);
+          if (key) {
+            this.setState((s) => ({ revealed: { ...s.revealed, [key]: true } }));
+            this.observer.unobserve(entry.target);
+          }
+        }
+      });
+    }, { threshold: 0.12 });
+    Object.values(this.sectionEls).forEach((el) => this.observer.observe(el));
+  }
+  setRef(key) {
+    return (el) => {
+      if (el && this.sectionEls[key] !== el) {
+        this.sectionEls[key] = el;
+        if (this.observer) this.observer.observe(el);
+      }
+    };
+  }
+  revealStyle(key) {
+    const on = !!this.state.revealed[key];
+    return `opacity: ${on ? 1 : 0}; transform: translateY(${on ? 0 : 26}px); transition: opacity 0.7s ease, transform 0.7s ease;`;
+  }
+  renderVals() {
+    const open = this.state.menuOpen;
+    const navLinks = this.baseNav.map((n, i) => ({
+      ...n,
+      opacity: open ? 1 : 0,
+      translateY: open ? '0px' : '18px',
+      delay: (open ? i * 70 : 0) + 'ms',
+    }));
+    return {
+      navLinks,
+      menuOpacity: open ? 1 : 0,
+      menuPointer: open ? 'auto' : 'none',
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      introRef: this.setRef('intro'),
+      introReveal: this.revealStyle('intro'),
+      bodyRef: this.setRef('body'),
+      bodyReveal: this.revealStyle('body'),
+    };
+  }
+}
+</script>
+</body>
+</html>
