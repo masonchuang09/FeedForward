@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #01120c; }
+  a { color: #ffffff; text-decoration: none; }
+  a:hover { color: #ffffff; }
+</style>
+</helmet>
+
+<div style="font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased;">
+
+  <div style="position: relative; padding-bottom: 150px; background: linear-gradient(to bottom, oklch(0.12 0.032 155) 0%, oklch(0.19 0.038 154) 14%, oklch(0.29 0.042 152) 28%, oklch(0.40 0.042 150) 42%, oklch(0.51 0.038 147) 56%, oklch(0.61 0.032 143) 68%, oklch(0.68 0.026 139) 80%, oklch(0.715 0.02 136) 92%, oklch(0.72 0.018 135) 100%); overflow: hidden;">
+    <div style="position: absolute; inset: 0; background-image: url('images/grain.png'); background-repeat: repeat; opacity: 0.5; mix-blend-mode: overlay; pointer-events: none;"></div>
+
+    <div style="position: relative; max-width: 1180px; margin: 0 auto; padding: 32px clamp(24px,6vw,64px) 0; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between;">
+      <a href="Home.dc.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="images/feedforward-logo.png" alt="FeedForward" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; flex: none; display: block;" />
+        <div style="font-size: 18px; font-weight: 500; letter-spacing: -0.03em; color: #ffffff;">FeedForward</div>
+      </a>
+      <div style="height: 40px; box-sizing: border-box; display: flex; align-items: center; padding: 0 18px; border-radius: 6px; background: rgba(255,255,255,0.105); cursor: pointer;" onclick="{{ openMenu }}">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: -0.01em; color: #ffffff;">MENU</span>
+      </div>
+    </div>
+
+    <div ref="{{ introRef }}" style="position: relative; max-width: 1180px; margin: 0 auto; padding: 100px clamp(24px,6vw,64px) 0; box-sizing: border-box; {{ introReveal }}">
+      <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: end;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 22px;">
+            <div style="width: 8px; height: 8px; background: #cd8552; flex: none;"></div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: #ffffff;">PARTNERS</span>
+          </div>
+          <div style="font-family: 'Fraunces', serif; font-size: clamp(38px,5vw,62px); font-weight: 500; line-height: 1.03; letter-spacing: -0.025em; color: #ffffff;">It takes a network to move good food.</div>
+        </div>
+        <div style="font-size: 18px; line-height: 1.6; letter-spacing: -0.01em; color: rgba(255,255,255,0.72); padding-bottom: 6px;">The kitchens that share their surplus and the organizations that get it onto plates. Every recovery depends on the people below.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: oklch(0.72 0.018 135); padding: 10px 0 60px;">
+    <div ref="{{ sponsorsRef }}" style="position: relative; max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px,6vw,64px); box-sizing: border-box; overflow: hidden; {{ sponsorsReveal }}">
+      <div style="position: absolute; right: clamp(24px,6vw,64px); top: -18px; font-family: 'Fraunces', serif; font-size: 220px; font-weight: 600; line-height: 1; color: rgba(23,44,33,0.05); z-index: 0; user-select: none; pointer-events: none;">02</div>
+      <div style="position: relative; display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 22px; gap: 24px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="width: 8px; height: 8px; background: #172c21; flex: none;"></div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: #172c21;">OUR SPONSORS</span>
+        </div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.05em; color: rgba(10,26,19,0.5);">2 SPONSORS</span>
+      </div>
+      <div style="position: relative; max-width: 560px; margin: 0 0 44px; font-size: 17px; line-height: 1.6; letter-spacing: -0.01em; color: rgba(10,26,19,0.72);">The kitchens, bakeries, and delis that share their surplus food so none of it goes to waste.</div>
+
+      <div style="position: relative; border-top: 1px solid rgba(10,26,19,0.18);">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 40px 0; border-bottom: 1px solid rgba(10,26,19,0.18); flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 18px; flex: 1.1; min-width: 300px;">
+            <img src="images/logo-brueggers.webp" alt="Bruegger's Bagels logo" style="width: 48px; height: 48px; border-radius: 10px; object-fit: cover; flex: none;" />
+            <span style="font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; letter-spacing: -0.02em; color: #0a1a13;">Bruegger's Bagels</span>
+            <span style="font-size: 14px; font-style: italic; letter-spacing: -0.005em; color: rgba(10,26,19,0.5); white-space: nowrap;">Surplus bagel recovery</span>
+          </div>
+          <div style="flex: 1; min-width: 260px; max-width: 440px; font-size: 15px; line-height: 1.65; letter-spacing: -0.005em; color: rgba(10,26,19,0.68);">End of day bagels and baked goods redirected to community partners on a steady weekly rhythm.</div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 40px 0; border-bottom: 1px solid rgba(10,26,19,0.18); flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 18px; flex: 1.1; min-width: 300px;">
+            <img src="images/logo-nybd.png" alt="New York Bagel and Deli logo" style="width: 48px; height: 48px; border-radius: 10px; object-fit: cover; flex: none;" />
+            <span style="font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; letter-spacing: -0.02em; color: #0a1a13;">New York Bagel and Deli</span>
+            <span style="font-size: 14px; font-style: italic; letter-spacing: -0.005em; color: rgba(10,26,19,0.5); white-space: nowrap;">Surplus food recovery</span>
+          </div>
+          <div style="flex: 1; min-width: 260px; max-width: 440px; font-size: 15px; line-height: 1.65; letter-spacing: -0.005em; color: rgba(10,26,19,0.68);">Fresh bagels, sandwiches, and deli fare recovered from daily surplus and redirected to community members in need.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: oklch(0.72 0.018 135); padding: 60px 0 140px;">
+    <div ref="{{ orgsRef }}" style="position: relative; max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px,6vw,64px); box-sizing: border-box; overflow: hidden; {{ orgsReveal }}">
+      <div style="position: absolute; right: clamp(24px,6vw,64px); top: -18px; font-family: 'Fraunces', serif; font-size: 220px; font-weight: 600; line-height: 1; color: rgba(23,44,33,0.05); z-index: 0; user-select: none; pointer-events: none;">03</div>
+      <div style="position: relative; display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 22px; gap: 24px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="width: 8px; height: 8px; background: #172c21; flex: none;"></div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: #172c21;">ORGANIZATIONS WE SERVE</span>
+        </div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.05em; color: rgba(10,26,19,0.5);">4 ORGANIZATIONS</span>
+      </div>
+      <div style="position: relative; max-width: 560px; margin: 0 0 44px; font-size: 17px; line-height: 1.6; letter-spacing: -0.01em; color: rgba(10,26,19,0.72);">The nonprofits and community programs that get recovered food onto plates across the region.</div>
+
+      <div style="position: relative; border-top: 1px solid rgba(10,26,19,0.18);">
+
+        <div style="display: flex; gap: 24px; padding: 40px 0; border-bottom: 1px solid rgba(10,26,19,0.18); flex-wrap: wrap; align-items: flex-start;">
+          <div style="flex: none;">
+            <img src="images/logo-um.webp" alt="Urban Ministries logo" style="width: 46px; height: 46px; border-radius: 10px; object-fit: cover;" />
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 14px; flex: 1.1; min-width: 280px; flex-wrap: wrap;">
+            <span style="font-family: 'Fraunces', serif; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; color: #0a1a13;">Urban Ministries</span>
+            <span style="font-size: 14px; font-style: italic; letter-spacing: -0.005em; color: rgba(10,26,19,0.5); white-space: nowrap;">Community distribution</span>
+          </div>
+          <div style="flex: 1; min-width: 260px; max-width: 440px; font-size: 15px; line-height: 1.65; letter-spacing: -0.005em; color: rgba(10,26,19,0.68); padding-top: 3px;">Shelter and food pantry partner serving Wake County neighbors facing food insecurity.</div>
+        </div>
+
+        <div style="display: flex; gap: 24px; padding: 40px 0; border-bottom: 1px solid rgba(10,26,19,0.18); flex-wrap: wrap; align-items: flex-start;">
+          <div style="flex: none;">
+            <img src="images/logo-bgc.webp" alt="Boys and Girls Club logo" style="width: 46px; height: 46px; border-radius: 10px; object-fit: cover; background: #0071ce;" />
+          </div>
+          <div style="flex: 1.1; min-width: 280px;">
+            <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;">
+              <span style="font-family: 'Fraunces', serif; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; color: #0a1a13;">Boys and Girls Club</span>
+              <span style="font-size: 14px; font-style: italic; letter-spacing: -0.005em; color: rgba(10,26,19,0.5); white-space: nowrap;">Community distribution</span>
+            </div>
+            <div style="margin-top: 6px; font-size: 13px; letter-spacing: -0.005em; color: rgba(10,26,19,0.45);">Contact: Taylor Bennett</div>
+          </div>
+          <div style="flex: 1; min-width: 260px; max-width: 440px; font-size: 15px; line-height: 1.65; letter-spacing: -0.005em; color: rgba(10,26,19,0.68); padding-top: 3px;">Youth program partner getting fresh food to kids and families through after school programs.</div>
+        </div>
+
+        <div style="display: flex; gap: 24px; padding: 40px 0; border-bottom: 1px solid rgba(10,26,19,0.18); flex-wrap: wrap; align-items: flex-start;">
+          <div style="flex: none;">
+            <img src="images/logo-whiteoak.jpg" alt="White Oak Foundation logo" style="width: 46px; height: 46px; border-radius: 10px; object-fit: cover;" />
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 14px; flex: 1.1; min-width: 280px; flex-wrap: wrap;">
+            <span style="font-family: 'Fraunces', serif; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; color: #0a1a13;">White Oak Foundation</span>
+            <span style="font-size: 14px; font-style: italic; letter-spacing: -0.005em; color: rgba(10,26,19,0.5); white-space: nowrap;">Community distribution</span>
+          </div>
+          <div style="flex: 1; min-width: 260px; max-width: 440px; font-size: 15px; line-height: 1.65; letter-spacing: -0.005em; color: rgba(10,26,19,0.68); padding-top: 3px;">Local foundation channeling recovered food to families and neighbors across the community.</div>
+        </div>
+
+        <div style="display: flex; gap: 24px; padding: 40px 0; border-bottom: 1px solid rgba(10,26,19,0.18); flex-wrap: wrap; align-items: flex-start;">
+          <div style="flex: none;">
+            <img src="images/logo-neighborup.png" alt="NeighborUp Cary logo" style="width: 46px; height: 46px; border-radius: 10px; object-fit: cover; background: #ffffff;" />
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 14px; flex: 1.1; min-width: 280px; flex-wrap: wrap;">
+            <span style="font-family: 'Fraunces', serif; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; color: #0a1a13;">NeighborUp Cary</span>
+            <span style="font-size: 14px; font-style: italic; letter-spacing: -0.005em; color: rgba(10,26,19,0.5); white-space: nowrap;">Community distribution</span>
+          </div>
+          <div style="flex: 1; min-width: 260px; max-width: 440px; font-size: 15px; line-height: 1.65; letter-spacing: -0.005em; color: rgba(10,26,19,0.68); padding-top: 3px;">Neighbor to neighbor network mobilizing communities to share resources and get food where it's needed.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div style="position: relative; background: #01120c; padding: 140px 0;">
+    <div style="position: absolute; inset: 0; background-image: url('images/grain.png'); background-repeat: repeat; opacity: 0.4; mix-blend-mode: overlay; pointer-events: none;"></div>
+    <div ref="{{ ctaRef }}" style="position: relative; max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px,6vw,64px); box-sizing: border-box; display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: center; {{ ctaReveal }}">
+      <div>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+          <div style="width: 8px; height: 8px; background: #cd8552; flex: none;"></div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: #ffffff;">BECOME A PARTNER</span>
+        </div>
+        <div style="font-family: 'Fraunces', serif; font-size: clamp(30px,3.6vw,46px); font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; color: #ffffff;">Have surplus food, or a community to feed?</div>
+        <div style="margin: 18px 0 0; max-width: 480px; font-size: 17px; line-height: 1.6; letter-spacing: -0.01em; color: rgba(255,255,255,0.62);">Whether you're a kitchen with food to share or an organization that can distribute it, we'd love to talk. Most partnerships start with a single conversation.</div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px;">
+        <a href="mailto:feedforward.contact@gmail.com" style="display: inline-flex; align-items: center; padding: 17px 30px; border-radius: 6px; background: #cd8552;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: -0.018em; color: #01120c;">EMAIL THE TEAM</span>
+        </a>
+        <span style="font-size: 13px; letter-spacing: -0.005em; color: rgba(255,255,255,0.45);">We usually reply within a day or two.</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="position: fixed; inset: 0; z-index: 9999; background: #01120c; opacity: {{ menuOpacity }}; pointer-events: {{ menuPointer }}; transition: opacity 0.35s ease;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 32px clamp(24px,6vw,64px) 0; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between;">
+      <a href="Home.dc.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="images/feedforward-logo.png" alt="FeedForward" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; flex: none; display: block;" />
+        <div style="font-size: 18px; font-weight: 500; letter-spacing: -0.03em; color: #ffffff;">FeedForward</div>
+      </a>
+      <div style="height: 40px; box-sizing: border-box; display: flex; align-items: center; padding: 0 18px; border-radius: 6px; background: rgba(255,255,255,0.105); cursor: pointer;" onclick="{{ closeMenu }}">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: -0.01em; color: #ffffff;">CLOSE</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 12vh clamp(24px,8vw,120px) 0;">
+      <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="5">
+        <a href="{{ l.href }}" style="font-family: 'Fraunces', serif; font-size: clamp(40px,7vw,88px); font-weight: 600; letter-spacing: -0.03em; color: #ffffff; opacity: {{ l.opacity }}; transform: translateY({{ l.translateY }}); transition: opacity 0.4s ease, transform 0.4s ease; transition-delay: {{ l.delay }};">{{ l.label }}</a>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="background: #01120c; padding: 56px 0 40px; border-top: 1px solid rgba(255,255,255,0.08);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px,6vw,64px); box-sizing: border-box;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap;">
+        <div>
+          <div style="font-size: 19px; font-weight: 500; letter-spacing: -0.02em; color: #ffffff;">FeedForward</div>
+          <div style="margin-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: -0.01em; color: rgba(255,255,255,0.5);">Student-run food recovery, Cary, NC</div>
+        </div>
+        <div style="display: flex; gap: 28px; flex-wrap: wrap;">
+          <a href="Home.dc.html" style="font-size: 14px; letter-spacing: -0.01em; color: rgba(255,255,255,0.7);">Home</a>
+          <a href="The%20Team.dc.html" style="font-size: 14px; letter-spacing: -0.01em; color: rgba(255,255,255,0.7);">The Team</a>
+          <a href="Our%20Work.dc.html" style="font-size: 14px; letter-spacing: -0.01em; color: rgba(255,255,255,0.7);">Our Work</a>
+          <a href="Partners.dc.html" style="font-size: 14px; letter-spacing: -0.01em; color: #ffffff;">Partners</a>
+          <a href="Contact.dc.html" style="font-size: 14px; letter-spacing: -0.01em; color: rgba(255,255,255,0.7);">Contact</a>
+        </div>
+      </div>
+      <div style="margin-top: 44px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px; letter-spacing: -0.01em; color: rgba(255,255,255,0.4);">&copy; 2026 FeedForward. All rights reserved.</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { menuOpen: false, revealed: {} };
+  sectionEls = {};
+  baseNav = [
+    { label: 'Home', href: 'Home.dc.html' },
+    { label: 'The Team', href: 'The%20Team.dc.html' },
+    { label: 'Our Work', href: 'Our%20Work.dc.html' },
+    { label: 'Partners', href: 'Partners.dc.html' },
+    { label: 'Contact', href: 'Contact.dc.html' },
+  ];
+  componentDidMount() {
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const key = Object.keys(this.sectionEls).find((k) => this.sectionEls[k] === entry.target);
+          if (key) {
+            this.setState((s) => ({ revealed: { ...s.revealed, [key]: true } }));
+            this.observer.unobserve(entry.target);
+          }
+        }
+      });
+    }, { threshold: 0.12 });
+    Object.values(this.sectionEls).forEach((el) => this.observer.observe(el));
+  }
+  setRef(key) {
+    return (el) => {
+      if (el && this.sectionEls[key] !== el) {
+        this.sectionEls[key] = el;
+        if (this.observer) this.observer.observe(el);
+      }
+    };
+  }
+  revealStyle(key) {
+    const on = !!this.state.revealed[key];
+    return `opacity: ${on ? 1 : 0}; transform: translateY(${on ? 0 : 26}px); transition: opacity 0.7s ease, transform 0.7s ease;`;
+  }
+  renderVals() {
+    const open = this.state.menuOpen;
+    const navLinks = this.baseNav.map((n, i) => ({
+      ...n,
+      opacity: open ? 1 : 0,
+      translateY: open ? '0px' : '18px',
+      delay: (open ? i * 70 : 0) + 'ms',
+    }));
+    return {
+      navLinks,
+      menuOpacity: open ? 1 : 0,
+      menuPointer: open ? 'auto' : 'none',
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      introRef: this.setRef('intro'),
+      introReveal: this.revealStyle('intro'),
+      sponsorsRef: this.setRef('sponsors'),
+      sponsorsReveal: this.revealStyle('sponsors'),
+      orgsRef: this.setRef('orgs'),
+      orgsReveal: this.revealStyle('orgs'),
+      ctaRef: this.setRef('cta'),
+      ctaReveal: this.revealStyle('cta'),
+    };
+  }
+}
+</script>
+</body>
+</html>
